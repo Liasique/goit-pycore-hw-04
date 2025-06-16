@@ -4,6 +4,8 @@
 def total_salary(path):
     try:
         with open(path, "r", encoding="utf-8") as file:
+            total_salaries = 0      
+            people_count = 0       
             # 2 Loop through each line with for line in file:
             for line in file:
                 line = line.strip()  # remove spaces and \n from the line
@@ -11,17 +13,27 @@ def total_salary(path):
                 name, salary_str = line.split(',')  # split the line into name and salary
                 # 4 convert salary into → int()
                 salary = int(salary_str)
-                print(name, salary) 
+                total_salaries += salary  # add for total
+                people_count += 1        # count person
             pass
+        
+            # 6 Return the total and average 
+            if people_count > 0:
+                 average_salary = total_salaries / people_count  
+            else:
+                average_salary = 0  # to avoid division by zero
+            return total_salaries, average_salary
     except FileNotFoundError:
-        print("File didnt find.")
-        #call function
-total_salary("task1/text.py")
+         print("No file.")
+    return 0, 0
 
+
+        #call function
+total, average = total_salary("task1/text.txt")
+print(f"Total salary: {total}, Average salary: {average}")
 
 # 5 Add all salaries together and count how many
 
-# 6 Return the total and average as a tuple → (total, average)
 
 # 7 Use try...except to catch file errors or wrong data
 
