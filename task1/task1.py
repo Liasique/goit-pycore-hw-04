@@ -1,6 +1,13 @@
 #TODO
 
 # 1 Open the file using with open(path, "r", encoding="utf-8")
+def total_salary(path):
+    try:
+        with open(path, "r", encoding="utf-8") as file:
+            # just open file
+            pass
+    except FileNotFoundError:
+        print("File didnt find.")
 
 # 2 Loop through each line with for line in file:
 
