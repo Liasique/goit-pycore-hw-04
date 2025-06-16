@@ -4,12 +4,15 @@
 def total_salary(path):
     try:
         with open(path, "r", encoding="utf-8") as file:
-            # just open file
+            # 2 Loop through each line with for line in file:
+            for line in file:
+                print(line)  # temporaty: output lines
             pass
     except FileNotFoundError:
         print("File didnt find.")
+        #call function
+total_salary("task1/text.py")
 
-# 2 Loop through each line with for line in file:
 
 # 3 Split the line by comma → line.split(',')
 
