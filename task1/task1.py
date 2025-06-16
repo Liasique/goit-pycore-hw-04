@@ -6,17 +6,18 @@ def total_salary(path):
         with open(path, "r", encoding="utf-8") as file:
             # 2 Loop through each line with for line in file:
             for line in file:
-                print(line)  # temporaty: output lines
+                line = line.strip()  # remove spaces and \n from the line
+                # 3 Split the line by comma → line.split(',')
+                name, salary_str = line.split(',')  # split the line into name and salary
+                # 4 convert salary into → int()
+                salary = int(salary_str)
+                print(name, salary) 
             pass
     except FileNotFoundError:
         print("File didnt find.")
         #call function
 total_salary("task1/text.py")
 
-
-# 3 Split the line by comma → line.split(',')
-
-# 4 Change the salary (second part) into a number using int()
 
 # 5 Add all salaries together and count how many
 
