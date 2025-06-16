@@ -13,8 +13,33 @@
 	#   - returns the list of dictionaries
 
 
+def get_cats_info(path):
+    cats = []  # create empty list to store cat dictionaries
 
+    try:
+        with open(path, "r", encoding="utf-8") as file:  # open the file
+            for line in file:  # go through each line
+                # remove spaces and /n and split by comma
+                cat_id, name, age = line.strip().split(',')
 
+                # create dictionary for one cat
+                cat = {
+                    "id": cat_id,
+                    "name": name,
+                    "age": age
+                }
+
+                # add this cat to the list
+                cats.append(cat)
+
+    except FileNotFoundError:
+        print("File not found.")
+
+    return cats 
+
+#test
+cats = get_cats_info("cats.txt")
+print(cats)
 
 '''
 Завдання 2
