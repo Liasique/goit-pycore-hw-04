@@ -2,6 +2,7 @@
 
 # 1 Open the file using with open(path, "r", encoding="utf-8")
 def total_salary(path):
+    # 7 Use try...except to catch file errors or wrong data
     try:
         with open(path, "r", encoding="utf-8") as file:
             total_salaries = 0      
@@ -13,7 +14,8 @@ def total_salary(path):
                 name, salary_str = line.split(',')  # split the line into name and salary
                 # 4 convert salary into → int()
                 salary = int(salary_str)
-                total_salaries += salary  # add for total
+                # 5 Add all salaries together and count how many
+                total_salaries += salary  
                 people_count += 1        # count person
             pass
         
@@ -27,15 +29,14 @@ def total_salary(path):
          print("No file.")
     return 0, 0
 
-
         #call function
 total, average = total_salary("task1/text.txt")
 print(f"Total salary: {total}, Average salary: {average}")
 
-# 5 Add all salaries together and count how many
 
 
-# 7 Use try...except to catch file errors or wrong data
+
+
 
 
 

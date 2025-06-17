@@ -1,9 +1,15 @@
 import sys
 from pathlib import Path
 from colorama import Fore, init
+init()
 
-import sys
-from pathlib import Path
+def show(path: Path, indent=""):
+    for item in path.iterdir():
+        if item.is_dir():
+            print(indent + Fore.BLUE + item.name + "/" +  Fore.RESET)
+            show(item, indent + "  ")  
+        else:
+            print(indent + Fore.YELLOW + item.name + Fore.RESET)
 
 if len(sys.argv) < 2:
     print("Please provide a folder path")
@@ -16,9 +22,11 @@ if not folder.exists() or not folder.is_dir():
     sys.exit()
 
 print(" Folder is valid:", folder)
+print(Fore.BLUE  + folder.name + "/" + Fore.RESET)
+show(folder)
 
 #TEST: (base) ➜  goit-pycore-hw-04 git:(main) ✗ python task3/task3.py task2 
-#  Folder is valid: task2
+#  Folder is valid: task3
 
 #   i   I sguess that it could be better to create run_task3.sh first
 # 	1.	Create virtual environment -> python -m venv venv
